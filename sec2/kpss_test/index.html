@@ -125,7 +125,42 @@
           <div role="main">
             <div class="section">
               
-                
+                <p><a id='UnitRoot.kpss_test' href='#UnitRoot.kpss_test'>#</a>
+<strong><code>UnitRoot.kpss_test</code></strong> &mdash; <em>Function</em>.</p>
+<p>Calculates the stationarity KPSS test statistic of Nyblom (1989) and Kwiatkowski et all (1992).</p>
+<p>
+<script type="math/tex; mode=display">
+ y_t = \xi_t + r_t + \epsilon_t
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+ r_t = r_{t-1} + u_t, \quad u_t\sim\mathcal{N}(0, \sigma^2_u)
+</script>
+</p>
+<p>The KPSS test has a LM-type statistic given by</p>
+<p>
+<script type="math/tex; mode=display">
+  LM = \frac{\sum^T_t S_t}{\epsilon'\epsilon},
+</script>
+</p>
+<p>where Sₜ is the partial sum of resids up to time t</p>
+<p>
+<script type="math/tex; mode=display">
+  S_t = \sum^t_{j=1} \epsilon_j
+</script>
+</p>
+<p><strong>Required Input Parameters</strong></p>
+<p><code>y::Vector{Float64}</code>: Observed time series in vector form.</p>
+<p><strong>Optional Input Parameters</strong></p>
+<p><code>trend::String</code>: Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are <code>"constant"</code>, which considers a constant deterministic term; amd <code>"linear"</code>, which also considers a linear time trend.</p>
+<p><strong>Output</strong></p>
+<p><code>kpss_stat::Float64</code>: KPSS test statistic.</p>
+<p><code>kpss_pval::Float64</code>: p-value obtained from 10000 simulations.</p>
+<p><code>@example 1
+  series = simul_arma()
+  kpss_test(series)</code></p>
+<p><a target='_blank' href='https://github.com/p-chaim/UnitRoot.jl/tree/61100876c17fa088d9cdb045021baf18a0be3314/src/kpss.jl#L1-L43' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>
