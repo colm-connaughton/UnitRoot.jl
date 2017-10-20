@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "unitoot.jl Documentation\n\n\nCalculate various unit root and stationarity tests.\n\n\n\n\nUnit Roots\n\n\n@docs UnitRoot.df_test UnitRoot.adf_test UnitRoot.kpss_test UnitRoot.dfgls_test UnitRoot.simul_arma\n\n\n## Index\n\n\n\n\n\n@index\n\n\n```",
+            "text": "unitoot.jl Documentation\n\n\nCalculate various unit root and stationarity tests.\n\n\n\n\nUnit Roots\n\n\n@docs UnitRoot.df_test UnitRoot.adf_test UnitRoot.kpss_test UnitRoot.dfgls_test\n\n\n## Index\n\n\n\n\n\n@index\n\n\n```",
             "title": "Introduction"
         },
         {
@@ -12,12 +12,12 @@
         },
         {
             "location": "/#unit-roots",
-            "text": "@docs UnitRoot.df_test UnitRoot.adf_test UnitRoot.kpss_test UnitRoot.dfgls_test UnitRoot.simul_arma  ## Index  @index  ```",
+            "text": "@docs UnitRoot.df_test UnitRoot.adf_test UnitRoot.kpss_test UnitRoot.dfgls_test  ## Index  @index  ```",
             "title": "Unit Roots"
         },
         {
             "location": "/sec1/df_test/",
-            "text": "Title\n\n\nSome text describing this section\n\n\n\n\nSubtitle\n\n\n#\n\n\nUnitRoot.df_test\n \u2014 \nFunction\n.\n\n\nCalculates classic Dickey-Fuller (1979) statistic.\n\n\n\n\n\n  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)\n\n\n\n\n\nRequired Input Parameters\n\n\ny::Vector{Float64}\n: Observed time series in vector form.\n\n\nOptional Input Parameters\n\n\ntrend::String\n: Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are \n\"constant\"\n, which considers a constant deterministic term; \n\"linear\"\n, which also considers a linear time trend; and \n\"none\"\n, which considers no deterministic detrending.\n\n\nOutput\n\n\ndf_stat::Float64\n: Dickey-Fuller (1979) test statistic.\n\n\ndf_pval::Float64\n: p-value obtained from 10000 simulations.\n\n\nsource",
+            "text": "Title\n\n\nSome text describing this section\n\n\n\n\nSubtitle\n\n\n#\n\n\nUnitRoot.df_test\n \u2014 \nFunction\n.\n\n\nCalculates classic Dickey-Fuller (1979) statistic.\n\n\n\n\n\n  \\Delta y_t = \\alpha*y_{t-1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)\n\n\n\n\n\nRequired Input Parameters\n\n\ny::Vector{Float64}\n: Observed time series in vector form.\n\n\nOptional Input Parameters\n\n\ntrend::String\n: Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are \n\"constant\"\n, which considers a constant deterministic term; \n\"linear\"\n, which also considers a linear time trend; and \n\"none\"\n, which considers no deterministic detrending.\n\n\nOutput\n\n\ndf_stat::Float64\n: Dickey-Fuller (1979) test statistic.\n\n\ndf_pval::Float64\n: p-value obtained from 10000 simulations.\n\n\nsource",
             "title": "DF"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "location": "/sec1/df_test/#subtitle",
-            "text": "#  UnitRoot.df_test  \u2014  Function .  Calculates classic Dickey-Fuller (1979) statistic.   \n  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)   Required Input Parameters  y::Vector{Float64} : Observed time series in vector form.  Optional Input Parameters  trend::String : Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are  \"constant\" , which considers a constant deterministic term;  \"linear\" , which also considers a linear time trend; and  \"none\" , which considers no deterministic detrending.  Output  df_stat::Float64 : Dickey-Fuller (1979) test statistic.  df_pval::Float64 : p-value obtained from 10000 simulations.  source",
+            "text": "#  UnitRoot.df_test  \u2014  Function .  Calculates classic Dickey-Fuller (1979) statistic.   \n  \\Delta y_t = \\alpha*y_{t-1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)   Required Input Parameters  y::Vector{Float64} : Observed time series in vector form.  Optional Input Parameters  trend::String : Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are  \"constant\" , which considers a constant deterministic term;  \"linear\" , which also considers a linear time trend; and  \"none\" , which considers no deterministic detrending.  Output  df_stat::Float64 : Dickey-Fuller (1979) test statistic.  df_pval::Float64 : p-value obtained from 10000 simulations.  source",
             "title": "Subtitle"
         },
         {
@@ -44,6 +44,16 @@
             "location": "/sec1/adf_test/#subtitle",
             "text": "#  UnitRoot.adf_test  \u2014  Function .  Calculates the Augmented Dickey-Fuller (1979) ADF statistic.   \n  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} \\beta_j*\\Delta y_{t-j}   Required Input Parameters  y::Vector{Float64} : Observed time series in vector form.  Optional Input Parameters  pmax::Int : Maximum number of lags to be considered in the correction for serial correlation.  trend::String : Deterministic trend specification. It determines the asymptotic distribution of the t-statistic. Possible values are  \"constant\" , which considers a constant deterministic term;  \"linear\" , which also considers a linear time trend; and  \"none\" , which considers no deterministic detrending.  Output  df_stat::Float64 : ADF test statistic.  df_pval::Float64 : p-value obtained from 10000 simulations.  source",
             "title": "Subtitle"
+        },
+        {
+            "location": "/sec1/dfgls_test/",
+            "text": "",
+            "title": "DFGLS"
+        },
+        {
+            "location": "/sec2/kpss_test/",
+            "text": "",
+            "title": "KPSS"
         }
     ]
 }
