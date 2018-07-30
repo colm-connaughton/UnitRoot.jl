@@ -2,7 +2,7 @@
 Calculates classic Dickey-Fuller (1979) statistic.
 
 ```math
-  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)
+  \\Delta y_t = \\alpha*y_{t-1} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)
 ```
 
 Required Input Parameters
@@ -128,7 +128,7 @@ function df_ols(y::Vector{Float64}, x::Array{Float64,})
   σ2_y = sse/(T-k)
   Σₓ = inv(x'x)
   Σᵦ = σ2_y.*Σₓ
-  t_stat = β./sqrt(diag(Σᵦ))
+  t_stat = β./sqrt.(diag(Σᵦ))
   bic = (T-k).*log(sse./(T-k)) .+ k.*log(T-k)
   return β, t_stat, bic
 end

@@ -40,7 +40,7 @@ Output
   kpss_test(series)
 ```
 
-""" ->
+"""->
 function kpss_test(y::Vector{Float64}; trend::String="constant")
   T = size(y,1)
   if trend=="constant"
@@ -95,12 +95,11 @@ function kpss_ols(y::Array{Float64,}, x::Array{Float64,})
   σ2_y = sse/(T-k)
   Σₓ = inv(x'x)
   Σᵦ = σ2_y.*Σₓ
-  t_stat = β./sqrt(diag(Σᵦ))
+  t_stat = β./sqrt.(diag(Σᵦ))
   bic = (T-k).*log(sse./(T-k)) .+ k.*log(T-k)
   resid = y - x*β
   return β, t_stat, resid
 end
 
 
-using Distributions
-kpss_test(randn(200))
+#kpss_test(randn(200))

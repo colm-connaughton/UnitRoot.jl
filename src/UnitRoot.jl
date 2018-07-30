@@ -12,6 +12,7 @@ include("dfgls.jl")
 export df_test,
 adf_test,
 kpss_test,
-dfgls_test
+dfgls_test,
+simul_arma
 
 end # module

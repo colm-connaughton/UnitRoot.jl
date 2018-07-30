@@ -1,5 +1,7 @@
 @doc """
+
 Calculates dfgls point optimal unit-root test statistic of Elliott, Rothenberg, and Stock (1996) value of the largest autorregressive coefficient under the alternative hypothesis given by ρ = 1+c/T, where c=-7 if trend="constant" and c=-13.5 if trend="linear")
+
 """->
 function dfgls_test(y::Vector{Float64}; nar::Integer=5, trend::String="constant")
   #rewrite of mw's dfgls.prc
