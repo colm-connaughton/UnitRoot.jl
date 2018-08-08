@@ -64,7 +64,7 @@ end
 Calculates the Augmented Dickey-Fuller (1979) ADF statistic.
 
 ```math
-  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} \\beta_j*\\Delta y_{t-j}
+  \\Delta y_t = \\alpha*y_{t-1} + \\sum^{pmax}_{j=1} \\beta_j*\\Delta y_{t-j} + \\epsilon_t, \\quad \\epsilon_t\\sim\\mathcal{N}(0,\\sigma^2)
 ```
 
 Required Input Parameters

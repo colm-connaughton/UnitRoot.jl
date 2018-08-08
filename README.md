@@ -2,19 +2,25 @@
 
 Time series econometric package with a few unit root and stationarity tests.
 
+## Instalation
+
+`Pkg.add("UnitRoot")`
+
+## Example
+
 Implemented tests:
 
 (unit root tests)
 - Dickey-Fuller
 - Augmented Dickey-Fuller
 - DFGLS
+
 (stationarity tests)
 - KPSS
 
 By default the functions return the test statistic and the p-value calculated through simulation.
 
-## Instalation
-`Pkg.add("UnitRoot")`
+
 
 [![Build Status](https://travis-ci.org/p-chaim/UnitRoot.jl.svg?branch=master)](https://travis-ci.org/p-chaim/UnitRoot.jl)
 
