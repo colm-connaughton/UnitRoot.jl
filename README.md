@@ -1,5 +1,12 @@
 # UnitRoot
 
+Time series econometric package with a few unit root and stationarity tests.
+
+Implemented tests:
+
+- Dickey-Fuller test
+
+
 ## Instalation
 `Pkg.add("UnitRoot")`
 
