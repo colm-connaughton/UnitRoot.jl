@@ -2,4 +2,4 @@ using UnitRoot
 using Base.Test
 
 # write your own tests here
-@test 1 == 2
+@test simul_arma()
