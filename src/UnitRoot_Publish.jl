@@ -1,4 +1,4 @@
-Pkg.update()
+#Pkg.update()
 using PkgDev
 PkgDev.register("UnitRoot")
 PkgDev.tag("UnitRoot")
