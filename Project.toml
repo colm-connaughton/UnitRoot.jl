@@ -1,0 +1,5 @@
+name = "UnitRoot"
+uuid = "3d359b5e-1860-5ce0-b086-5802e1bfc9c3"
+
+[compat]
+julia = "≥ 0.6.0"
