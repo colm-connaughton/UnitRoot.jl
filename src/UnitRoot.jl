@@ -3,6 +3,7 @@ module UnitRoot
 
 using KernelDensity
 using Distributions
+using LinearAlgebra
 
 #ar_lagmatrix
 include("adf.jl")

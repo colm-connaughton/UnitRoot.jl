@@ -53,7 +53,8 @@ function kpss_test(y::Vector{Float64}; trend::String="constant")
     error(" trend must be either, constant, or linear")
   end
   β, t_stat, resid = kpss_ols(y, x[:,:])
-  S = cumsum(resid, 1)
+  #S = cumsum(resid, 1)
+  S = cumsum(resid)
   nominator = sum(S.^2)/(T^2)
   denominator = resid'resid/T
   kpss_stat = nominator./denominator
@@ -65,23 +66,23 @@ end
 function wiener2(nobs)
     e0 = rand(Normal(), nobs);
     x = ones(nobs,1);
-    e1 = e0 - mean(e0);
+    e1 = e0 .- mean(e0);
     b = inv(x'x)*(x'e0);
     e2 = e0-b.*e0;
     y1 = cumsum(e1);
     y2 = cumsum(e2);
-    intW2_1 = nobs^(-2.)*sum(y1.^2, 1);
-    intW2_2 = nobs^(-2.)*sum(y2.^2, 1);
+    intW2_1 = nobs^(-2.)*sum(y1.^2);
+    intW2_2 = nobs^(-2.)*sum(y2.^2);
     return intW2_1, intW2_2
 end
 
 function kpss_dist(T; trend="constant")
   nsim = 10000
-  kpss = Vector{Float64}(nsim)
+  kpss = Vector{Float64}(undef,nsim)
   for isim ∈ 1:nsim
     c_tmp, trnd_tmp = wiener2(T)
-    (trend=="constant") && (kpss[isim, :] = c_tmp)
-    (trend=="linear") && (kpss[isim, :] = trnd_tmp)
+    (trend=="constant") && (kpss[isim, :] .= c_tmp)
+    (trend=="linear") && (kpss[isim, :] .= trnd_tmp)
   end
   return kpss
 end
